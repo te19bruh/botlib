@@ -9,31 +9,13 @@ class info:
     def fullname(self):
         return f"{self.firstname} {self.lastname}"
         
-def setUserFirst():
-
+def setUser(a):
+#firstname, lastname, discord
     with open('info.json') as f:
         data = json.load(f)
     list = []
     for person in data['people']:
-        list.append(person['firstname'])
-    return list
-    
-def setUserLast():
-
-    with open('info.json') as f:
-        data = json.load(f)
-    list = []
-    for person in data['people']:
-        list.append(person['lastname'])
-    return list
-    
-def setUserDiscord():
-    
-    with open('info.json') as f:
-        data = json.load(f)
-    list = []
-    for person in data['people']:
-        list.append(person['discord'])     
+        list.append(person[a])
     return list
     
 def getBotId():
