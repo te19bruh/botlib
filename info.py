@@ -1,17 +1,8 @@
-import json
-
-class info:
-    def __init__(self, firstname, lastname, discord):
-        self.firstname  = firstname
-        self.lastname   = lastname
-        self.discord    = discord
-                                       
-    def fullname(self):
-        return f"{self.firstname} {self.lastname}"
+import json, os
         
 def setUser(a):
 #firstname, lastname, discord
-    with open('info.json') as f:
+    with open(os.path.join('./json', 'people.json')) as f:
         data = json.load(f)
     list = []
     for person in data['people']:
@@ -19,9 +10,9 @@ def setUser(a):
     return list
     
 def getBotId():
-    with open('bot.json') as f:
+    with open(os.path.join('./json', 'bot_tokens.json')) as f:
         data = json.load(f)
     list = []
     for bot in data['bots']:
-        list.append(bot['id'])
+        list.append(bot['token'])
     return list
